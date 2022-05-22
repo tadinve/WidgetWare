@@ -270,8 +270,7 @@ services:
       interval: 10s
       retries: 10
 
-  superset:
-    image: 
+
 
 ######################################################
 # NETWORK
