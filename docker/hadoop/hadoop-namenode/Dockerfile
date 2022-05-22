@@ -1,5 +1,5 @@
 FROM hadoop-base:latest
-LABEL maintainer="MarcLamberti"
+LABEL maintainer="Venkat"
 
 ENV HDFS_CONF_DFS_NAMENODE_DATA_DIR=file:///hadoop/dfs/name
 

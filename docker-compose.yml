@@ -259,7 +259,9 @@ services:
     container_name: airflow
     volumes:
       - ./mnt/airflow/airflow.cfg:/opt/airflow/airflow.cfg
-      - ./mnt/airflow/dags:/opt/airflow/dags
+      - ./mnt/airflow/dags:/opt/airflow/dags  
+      - ./mnt/scripts:/opt/airflow/scripts  
+
     ports:
       - 8080:8080
     healthcheck:
@@ -267,6 +269,9 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+
+  superset:
+    image: 
 
 ######################################################
 # NETWORK

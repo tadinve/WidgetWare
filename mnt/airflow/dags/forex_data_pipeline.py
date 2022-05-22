@@ -56,12 +56,12 @@ with DAG("forex_data_pipeline",start_date=datetime(2021,1,1),
 
     reset_data = BashOperator(
         task_id = "reset_data",
-        bash_command="/opt/airflow/dags/scripts/reset_data.sh "
+        bash_command="/opt/airflow/scripts/reset_data.sh "
     )
 
     add_conns = BashOperator(
         task_id = "add_conns",
-        bash_command="/opt/airflow/dags/scripts/add_connections.sh "
+        bash_command="/opt/airflow/scripts/add_connections.sh "
     )
 
     is_forex_rates_available = HttpSensor(
@@ -126,7 +126,7 @@ with DAG("forex_data_pipeline",start_date=datetime(2021,1,1),
     
     forex_processing = SparkSubmitOperator(
         task_id = "forex_processing",
-        application="/opt/airflow/dags/scripts/forex_processing.py",
+        application="/opt/airflow/scripts/forex_processing.py",
         conn_id = "spark_conn",
         verbose=False
     )

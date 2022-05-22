@@ -1,5 +1,5 @@
 FROM hive-base:latest
-LABEL maintainer="MarcLamberti"
+LABEL maintainer="Venkat"
 
 # Defining useful environment variables
 ENV SPARK_VERSION=2.4.5
