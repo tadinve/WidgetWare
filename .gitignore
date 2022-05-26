@@ -1,0 +1,12 @@
+.history*
+.history/*.*
+
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+*.pyc
+**/__pycache__/**
+
+**logs/
+
+.vscode*/*

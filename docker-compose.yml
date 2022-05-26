@@ -260,6 +260,7 @@ services:
     volumes:
       - ./mnt/airflow/airflow.cfg:/opt/airflow/airflow.cfg
       - ./mnt/airflow/dags:/opt/airflow/dags  
+      - ./mnt/airflow/logs:/opt/airflow/logs
       - ./mnt/scripts:/opt/airflow/scripts  
 
     ports:

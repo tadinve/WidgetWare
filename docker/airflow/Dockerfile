@@ -3,7 +3,7 @@ FROM spark-base:latest
 LABEL maintainer="Venkat"
 
 # Arguments that can be set with docker build
-ARG AIRFLOW_VERSION=2.1.4
+ARG AIRFLOW_VERSION=2.2.4
 ARG AIRFLOW_HOME=/opt/airflow
 
 # Export the environment variable AIRFLOW_HOME where airflow will be installed
@@ -45,7 +45,9 @@ RUN pip install --upgrade "pip==20.2.4" && \
     pip install apache-airflow-providers-apache-hive==2.0.2 && \
     pip install apache-airflow-providers-apache-spark==2.0.1 && \
     pip install apache-airflow-providers-slack==4.0.1 && \
-    pip install apache-airflow-providers-http==2.0.1
+    pip install apache-airflow-providers-http==2.0.1 && \ 
+    pip install psycopg2 && \
+    pip install pandas
 
 # Copy the airflow.cfg file (config)
 #COPY ./config/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
@@ -62,8 +64,10 @@ RUN chmod +x ./start-airflow.sh
 # Set the username to use
 USER airflow
 
-# Create the folder dags inside $AIRFLOW_HOME
+# Create the folder dags & logs inside $AIRFLOW_HOME
 RUN mkdir -p ${AIRFLOW_HOME}/dags
+
+RUN mkdir -p ${AIRFLOW_HOME}/logs && mkdir -p ${AIRFLOW_HOME}/logs/webserver && mkdir -p ${AIRFLOW_HOME}/logs/scheduler
 
 # Expose ports (just to indicate that this container needs to map port)
 EXPOSE 8080
