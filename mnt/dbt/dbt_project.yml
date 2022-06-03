@@ -1,0 +1,29 @@
+name: 'jaffle_shop'
+version: '0.1'
+profile: 'default'
+config-version: 2
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for taxi_demo, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["sample_data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+    - "logs"
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+models:
+  jaffle_shop:
+      materialized: table
+      staging:
+        materialized: view
+        +tags: "tag_staging"

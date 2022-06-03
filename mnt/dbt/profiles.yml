@@ -1,0 +1,13 @@
+default:
+  outputs:
+    local:
+      type: postgres
+      host: postgres-dbt
+      user: dbtuser
+      pass: pssd
+      port: 5432
+      dbname: dbtdb
+      schema: dbt
+      threads: 4
+  target: local
+  

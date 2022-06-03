@@ -14,6 +14,8 @@ services:
       MYSQL_PASSWORD: superset
       MYSQL_ROOT_PASSWORD: superset
       MYSQL_USER: superset
+    ports:
+      - "3306:3306"
     volumes:
       - mysql:/var/lib/mysql
   superset:
@@ -28,6 +30,9 @@ services:
       - "8088:8088"
     volumes:
       - ./superset_config.py:/etc/superset/superset_config.py
+networks:
+  default:
+    name: airflow-network      
 volumes:
   mysql:
   redis:

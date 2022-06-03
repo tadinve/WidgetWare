@@ -9,6 +9,10 @@ cd $AIRFLOW_HOME
 
 # Export environement variables
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
+export AIRFLOW__CORE__LOAD_DEFAULT_CONNECTIONS=False
+
+cd /dbt && dbt compile
+
 
 # Initiliase the metadatabase
 airflow db init
@@ -21,6 +25,9 @@ airflow scheduler -D \
     -l $AIRFLOW_HOME/logs/scheduler/airflow-scheduler.log \
     --stderr $AIRFLOW_HOME/logs/scheduler/airflow-scheduler.stderr \
     --stdout $AIRFLOW_HOME/logs/scheduler/airflow-scheduler.stdout &> /dev/null &
+
+# Add Postgres connection for DBT 
+airflow connections add 'dbt_postgres' --conn-uri "postgres://${DBT_POSTGRES_USER}:${DBT_POSTGRES_PASSWORD}@${DBT_POSTGRES_HOST}:${POSTGRES_PORT}/${DBT_POSTGRES_DB}"
 
 # Run the web sever in foreground (for docker logs)
 exec airflow webserver

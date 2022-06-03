@@ -7,7 +7,7 @@ services:
   postgres:
     build: './docker/postgres'
     restart: always
-    container_name: postgres
+    #container_name: postgres
     logging:
       driver: "json-file"
       options:
@@ -22,12 +22,28 @@ services:
       - POSTGRES_PASSWORD=airflow
       - POSTGRES_DB=airflow_db
       #- PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "airflow_db", "-U", "airflow" ]
       timeout: 45s
       interval: 10s
       retries: 10
 
+  postgres-dbt:
+    image: postgres:13
+    environment:
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_USER : dbtuser
+      POSTGRES_DB : dbtdb
+      DBT_SCHEMA: dbt
+      DBT_RAW_DATA_SCHEMA: dbt_raw_data
+    ports:
+      - "5433:5432"
+    restart: always
+    volumes:
+      - postgres-dbt-volume:/var/lib/postgresql/data    
+      
   adminer:
     image: wodby/adminer:latest
     restart: always
@@ -256,13 +272,31 @@ services:
   airflow:
     build: ./docker/airflow
     restart: always
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow_db
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - DBT_PROFILES_DIR=/dbt
+      - DBT_POSTGRES_PASSWORD=pssd
+      - DBT_POSTGRES_USER=dbtuser
+      - DBT_POSTGRES_DB=dbtdb
+      - DBT_DBT_SCHEMA=dbt
+      - DBT_DBT_RAW_DATA_SCHEMA=dbt_raw_data
+      - DBT_POSTGRES_HOST=postgres-dbt
     container_name: airflow
     volumes:
+      - ./mnt/dbt:/dbt
+      - ./mnt/great_expectations:/great_expectations
+      - ./mnt/include:/include
       - ./mnt/airflow/airflow.cfg:/opt/airflow/airflow.cfg
       - ./mnt/airflow/dags:/opt/airflow/dags  
       - ./mnt/airflow/logs:/opt/airflow/logs
-      - ./mnt/scripts:/opt/airflow/scripts  
+      - ./mnt/airflow/plugins:/opt/airflow/plugins
+      - ./mnt/scripts:/opt/airflow/scripts
 
+      
     ports:
       - 8080:8080
     healthcheck:
@@ -271,8 +305,37 @@ services:
       interval: 10s
       retries: 10
 
+######################################################
+##################### SUPERSET #######################
+######################################################
 
+  apache-superset:
+    #image: apache/superset
+    build: ./docker/superset
+    container_name: apache-superset
+    ports:
+      - "8088:8088"
+    restart: unless-stopped
 
+  # openssh-client:
+  #   image: entechlog/openssh-client
+  #   container_name: openssh-client
+  #   build: ./docker/openssh-client/
+  #   depends_on:
+  #     - apache-superset
+  #   restart: unless-stopped
+  #   tty: true
+  #   volumes:
+  #     - //var/run/docker.sock:/var/run/docker.sock:rw
+  #     - ./docker/superset/initialize-superset.sh:/usr/src/scripts/initialize-superset.sh
+  #   command: 
+  #     # In the command section, $ are replaced with $$ to avoid the error 'Invalid interpolation format for "command" option'
+  #     - bash 
+  #     - -c 
+  #     - |
+  #       sleep 30
+  #       /usr/src/scripts/initialize-superset.sh
+  #       sleep 10
 ######################################################
 # NETWORK
 ######################################################
@@ -282,3 +345,10 @@ services:
 networks:
   default:
     name: airflow-network
+
+
+volumes:
+  postgres-db-volume:
+    driver: local
+  postgres-dbt-volume:
+    driver: local

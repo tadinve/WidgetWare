@@ -9,7 +9,7 @@ docker-compose up -d superset
 sleep 60
 
 # Initialize demo
-docker-compose exec superset superset-demo
+docker-compose exec superset superset-init
 
 # Play around in demo...
 
