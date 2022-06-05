@@ -1,5 +1,5 @@
 # Base Image
-FROM spark-base:latest
+FROM python:3.7-slim-bullseye
 LABEL maintainer="Venkat"
 
 # Arguments that can be set with docker build

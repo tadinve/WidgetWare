@@ -7,6 +7,12 @@
 *.pyc
 **/__pycache__/**
 
-**logs/
-
 .vscode*/*
+**.DS_Store
+*.user.yml
+**/target/*
+/mnt/include/*
+mnt/.DS_Store
+
+mnt/great_expectations/*
+!mnt/great_expectations/
