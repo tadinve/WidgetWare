@@ -70,12 +70,18 @@ COPY ./start-airflow.sh ./start-airflow.sh
 RUN chmod +x ./start-airflow.sh
 
 # Set the username to use
-USER airflow
+#USER airflow
+USER root
 
 # Create the folder dags & logs inside $AIRFLOW_HOME
-RUN mkdir -p ${AIRFLOW_HOME}/dags && mkdir -p ${AIRFLOW_HOME}/plugins
+RUN mkdir -p ${AIRFLOW_HOME}/dags
+RUN mkdir -p ${AIRFLOW_HOME}/plugins
+RUN mkdir -p ${AIRFLOW_HOME}/logs 
+RUN mkdir -p ${AIRFLOW_HOME}/logs/webserver
+RUN mkdir -p ${AIRFLOW_HOME}/logs/scheduler
 
-RUN mkdir -p ${AIRFLOW_HOME}/logs && mkdir -p ${AIRFLOW_HOME}/logs/webserver && mkdir -p ${AIRFLOW_HOME}/logs/scheduler
+RUN echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > ${AIRFLOW_HOME}/.env
+
 
 # Expose ports (just to indicate that this container needs to map port)
 EXPOSE 8080
