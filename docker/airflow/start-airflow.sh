@@ -14,6 +14,7 @@ export PYTHONPATH='/opt/airflow:/opt/airflow/dags:/opt/airflow/plugins'
 
 cd /dbt && dbt compile
 
+cd / && great_expectations -y init
 
 # Initiliase the metadatabase
 airflow db init
