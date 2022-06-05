@@ -1,2 +1,6 @@
-**/great_expectations/*
-!**/great_expectations/
+uncommitted/
+checkpoints/
+expectations/
+plugins/
+profilers/
+great_expectations.yml
