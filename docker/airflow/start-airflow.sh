@@ -10,6 +10,7 @@ cd $AIRFLOW_HOME
 # Export environement variables
 export AIRFLOW__CORE__LOAD_EXAMPLES=False
 export AIRFLOW__CORE__LOAD_DEFAULT_CONNECTIONS=False
+export PYTHONPATH='/opt/airflow:/opt/airflow/dags:/opt/airflow/plugins'
 
 cd /dbt && dbt compile
 
