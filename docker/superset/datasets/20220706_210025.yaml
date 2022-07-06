@@ -1,0 +1,12 @@
+- columns:
+  - column_name: customer_type_id
+    type: UNKNOWN
+  - column_name: customer_id
+    type: UNKNOWN
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: customer_customer_demo

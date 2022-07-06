@@ -18,6 +18,16 @@ services:
       - "3306:3306"
     volumes:
       - mysql:/var/lib/mysql
+  postgres_db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./postgres_db:/var/lib/postgresql/data
   superset:
     image: amancevice/superset
     restart: always
@@ -36,3 +46,4 @@ networks:
 volumes:
   mysql:
   redis:
+  postgres_db:

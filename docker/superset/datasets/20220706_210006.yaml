@@ -1,0 +1,14 @@
+- columns:
+  - column_name: company_name
+    type: VARCHAR(40)
+  - column_name: phone
+    type: VARCHAR(24)
+  - column_name: shipper_id
+    type: SMALLINT
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: shippers

@@ -1,5 +1,5 @@
 # Start Redis & PostgreSQL services
-docker-compose up  --remove-orphans -d redis mysql
+docker-compose up  --remove-orphans -d redis mysql postgres_db
 # Wait for services to come up fully...
 
 # Start Superset

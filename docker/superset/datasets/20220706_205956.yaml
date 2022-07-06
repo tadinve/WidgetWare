@@ -1,0 +1,14 @@
+- columns:
+  - column_name: territory_id
+    type: VARCHAR(20)
+  - column_name: region_id
+    type: SMALLINT
+  - column_name: territory_description
+    type: UNKNOWN
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: territories

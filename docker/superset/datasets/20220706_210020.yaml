@@ -1,0 +1,30 @@
+- columns:
+  - column_name: postal_code
+    type: VARCHAR(10)
+  - column_name: contact_name
+    type: VARCHAR(30)
+  - column_name: contact_title
+    type: VARCHAR(30)
+  - column_name: company_name
+    type: VARCHAR(40)
+  - column_name: address
+    type: VARCHAR(60)
+  - column_name: city
+    type: VARCHAR(15)
+  - column_name: country
+    type: VARCHAR(15)
+  - column_name: region
+    type: VARCHAR(15)
+  - column_name: fax
+    type: VARCHAR(24)
+  - column_name: phone
+    type: VARCHAR(24)
+  - column_name: customer_id
+    type: UNKNOWN
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: customers

@@ -1,0 +1,40 @@
+- columns:
+  - column_name: required_date
+    is_dttm: true
+    type: DATE
+  - column_name: shipped_date
+    is_dttm: true
+    type: DATE
+  - column_name: order_date
+    is_dttm: true
+    type: DATE
+  - column_name: ship_postal_code
+    type: VARCHAR(10)
+  - column_name: ship_name
+    type: VARCHAR(40)
+  - column_name: ship_address
+    type: VARCHAR(60)
+  - column_name: ship_city
+    type: VARCHAR(15)
+  - column_name: ship_country
+    type: VARCHAR(15)
+  - column_name: ship_region
+    type: VARCHAR(15)
+  - column_name: freight
+    type: REAL
+  - column_name: ship_via
+    type: SMALLINT
+  - column_name: order_id
+    type: SMALLINT
+  - column_name: employee_id
+    type: SMALLINT
+  - column_name: customer_id
+    type: UNKNOWN
+  main_dttm_col: order_date
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: orders

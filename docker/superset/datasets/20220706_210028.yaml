@@ -1,0 +1,16 @@
+- columns:
+  - column_name: category_name
+    type: VARCHAR(15)
+  - column_name: picture
+    type: BYTEA
+  - column_name: category_id
+    type: SMALLINT
+  - column_name: description
+    type: TEXT
+  metrics:
+  - expression: COUNT(*)
+    metric_name: count
+    metric_type: count
+    verbose_name: COUNT(*)
+  schema: public
+  table_name: categories
