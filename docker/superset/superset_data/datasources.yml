@@ -1,0 +1,310 @@
+databases:
+- database_name: MySQL
+  sqlalchemy_uri: mysql://root:XXXXXXXXXX@192.168.0.5/widgetware
+  tables: []
+- database_name: PostgreSQL
+  sqlalchemy_uri: postgresql://postgres:XXXXXXXXXX@192.168.0.4/postgres
+  tables:
+  - columns:
+    - column_name: birth_date
+      is_dttm: true
+      type: DATE
+    - column_name: hire_date
+      is_dttm: true
+      type: DATE
+    - column_name: postal_code
+      type: VARCHAR(10)
+    - column_name: first_name
+      type: VARCHAR(10)
+    - column_name: last_name
+      type: VARCHAR(20)
+    - column_name: title
+      type: VARCHAR(30)
+    - column_name: address
+      type: VARCHAR(60)
+    - column_name: city
+      type: VARCHAR(15)
+    - column_name: country
+      type: VARCHAR(15)
+    - column_name: region
+      type: VARCHAR(15)
+    - column_name: home_phone
+      type: VARCHAR(24)
+    - column_name: photo_path
+      type: VARCHAR(255)
+    - column_name: title_of_courtesy
+      type: VARCHAR(25)
+    - column_name: extension
+      type: VARCHAR(4)
+    - column_name: photo
+      type: BYTEA
+    - column_name: employee_id
+      type: SMALLINT
+    - column_name: reports_to
+      type: SMALLINT
+    - column_name: notes
+      type: TEXT
+    main_dttm_col: birth_date
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: employees
+  - columns:
+    - column_name: required_date
+      is_dttm: true
+      type: DATE
+    - column_name: shipped_date
+      is_dttm: true
+      type: DATE
+    - column_name: order_date
+      is_dttm: true
+      type: DATE
+    - column_name: ship_postal_code
+      type: VARCHAR(10)
+    - column_name: ship_name
+      type: VARCHAR(40)
+    - column_name: ship_address
+      type: VARCHAR(60)
+    - column_name: ship_city
+      type: VARCHAR(15)
+    - column_name: ship_country
+      type: VARCHAR(15)
+    - column_name: ship_region
+      type: VARCHAR(15)
+    - column_name: freight
+      type: REAL
+    - column_name: ship_via
+      type: SMALLINT
+    - column_name: order_id
+      type: SMALLINT
+    - column_name: employee_id
+      type: SMALLINT
+    - column_name: customer_id
+      type: UNKNOWN
+    main_dttm_col: order_date
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: orders
+  - columns:
+    - column_name: postal_code
+      type: VARCHAR(10)
+    - column_name: contact_name
+      type: VARCHAR(30)
+    - column_name: contact_title
+      type: VARCHAR(30)
+    - column_name: company_name
+      type: VARCHAR(40)
+    - column_name: address
+      type: VARCHAR(60)
+    - column_name: city
+      type: VARCHAR(15)
+    - column_name: country
+      type: VARCHAR(15)
+    - column_name: region
+      type: VARCHAR(15)
+    - column_name: fax
+      type: VARCHAR(24)
+    - column_name: phone
+      type: VARCHAR(24)
+    - column_name: supplier_id
+      type: SMALLINT
+    - column_name: homepage
+      type: TEXT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: suppliers
+  - columns:
+    - column_name: postal_code
+      type: VARCHAR(10)
+    - column_name: contact_name
+      type: VARCHAR(30)
+    - column_name: contact_title
+      type: VARCHAR(30)
+    - column_name: company_name
+      type: VARCHAR(40)
+    - column_name: address
+      type: VARCHAR(60)
+    - column_name: city
+      type: VARCHAR(15)
+    - column_name: country
+      type: VARCHAR(15)
+    - column_name: region
+      type: VARCHAR(15)
+    - column_name: fax
+      type: VARCHAR(24)
+    - column_name: phone
+      type: VARCHAR(24)
+    - column_name: customer_id
+      type: UNKNOWN
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: customers
+  - columns:
+    - column_name: quantity_per_unit
+      type: VARCHAR(20)
+    - column_name: product_name
+      type: VARCHAR(40)
+    - column_name: unit_price
+      type: REAL
+    - column_name: units_in_stock
+      type: SMALLINT
+    - column_name: units_on_order
+      type: SMALLINT
+    - column_name: category_id
+      type: SMALLINT
+    - column_name: product_id
+      type: SMALLINT
+    - column_name: reorder_level
+      type: SMALLINT
+    - column_name: supplier_id
+      type: SMALLINT
+    - column_name: discontinued
+      type: INTEGER
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: products
+  - columns:
+    - column_name: unit_price
+      type: REAL
+    - column_name: discount
+      type: REAL
+    - column_name: product_id
+      type: SMALLINT
+    - column_name: order_id
+      type: SMALLINT
+    - column_name: quantity
+      type: SMALLINT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: order_details
+  - columns:
+    - column_name: state_name
+      type: VARCHAR(100)
+    - column_name: state_region
+      type: VARCHAR(50)
+    - column_name: state_abbr
+      type: VARCHAR(2)
+    - column_name: state_id
+      type: SMALLINT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: us_states
+  - columns:
+    - column_name: category_name
+      type: VARCHAR(15)
+    - column_name: picture
+      type: BYTEA
+    - column_name: category_id
+      type: SMALLINT
+    - column_name: description
+      type: TEXT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: categories
+  - columns:
+    - column_name: company_name
+      type: VARCHAR(40)
+    - column_name: phone
+      type: VARCHAR(24)
+    - column_name: shipper_id
+      type: SMALLINT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: shippers
+  - columns:
+    - column_name: territory_id
+      type: VARCHAR(20)
+    - column_name: region_id
+      type: SMALLINT
+    - column_name: territory_description
+      type: UNKNOWN
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: territories
+  - columns:
+    - column_name: territory_id
+      type: VARCHAR(20)
+    - column_name: employee_id
+      type: SMALLINT
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: employee_territories
+  - columns:
+    - column_name: region_id
+      type: SMALLINT
+    - column_name: region_description
+      type: UNKNOWN
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: region
+  - columns:
+    - column_name: customer_desc
+      type: TEXT
+    - column_name: customer_type_id
+      type: UNKNOWN
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: customer_demographics
+  - columns:
+    - column_name: customer_type_id
+      type: UNKNOWN
+    - column_name: customer_id
+      type: UNKNOWN
+    metrics:
+    - expression: COUNT(*)
+      metric_name: count
+      metric_type: count
+      verbose_name: COUNT(*)
+    schema: public
+    table_name: customer_customer_demo

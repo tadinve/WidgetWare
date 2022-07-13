@@ -1,0 +1,806 @@
+{
+    "dashboards": [
+        {
+            "__Dashboard__": {
+                "css": "",
+                "dashboard_title": "Widgetware",
+                "description": null,
+                "json_metadata": "{\"show_native_filters\": true, \"shared_label_colors\": {}, \"color_scheme\": \"\", \"refresh_frequency\": 0, \"expanded_slices\": {}, \"label_colors\": {}, \"timed_refresh_immune_slices\": [], \"default_filters\": \"{}\", \"chart_configuration\": {}, \"native_filter_configuration\": [{\"id\": \"NATIVE_FILTER-YThfThXur\", \"controlValues\": {\"enableEmptyFilter\": false, \"defaultToFirstItem\": false, \"multiSelect\": true, \"searchAllOptions\": false, \"inverseSelection\": false}, \"name\": \"Region\", \"filterType\": \"filter_select\", \"targets\": [{\"datasetId\": 19, \"column\": {\"name\": \"ship_region\"}}], \"defaultDataMask\": {\"extraFormData\": {}, \"filterState\": {}, \"ownState\": {}}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": []}, \"type\": \"NATIVE_FILTER\", \"description\": \"\", \"chartsInScope\": [5, 6, 7], \"tabsInScope\": []}, {\"id\": \"NATIVE_FILTER-YAh9HUtRt\", \"controlValues\": {\"enableEmptyFilter\": false, \"defaultToFirstItem\": false, \"multiSelect\": true, \"searchAllOptions\": false, \"inverseSelection\": false}, \"name\": \"Employee\", \"filterType\": \"filter_select\", \"targets\": [{\"datasetId\": 19, \"column\": {\"name\": \"employee_id\"}}], \"defaultDataMask\": {\"extraFormData\": {}, \"filterState\": {}, \"ownState\": {}}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": []}, \"type\": \"NATIVE_FILTER\", \"description\": \"\", \"chartsInScope\": [5, 7], \"tabsInScope\": []}, {\"id\": \"NATIVE_FILTER-jFsNFzvgx\", \"controlValues\": {\"enableEmptyFilter\": false, \"defaultToFirstItem\": false, \"multiSelect\": true, \"searchAllOptions\": false, \"inverseSelection\": false}, \"name\": \"Country\", \"filterType\": \"filter_select\", \"targets\": [{\"datasetId\": 19, \"column\": {\"name\": \"ship_country\"}}], \"defaultDataMask\": {\"extraFormData\": {}, \"filterState\": {}, \"ownState\": {}}, \"cascadeParentIds\": [], \"scope\": {\"rootPath\": [\"ROOT_ID\"], \"excluded\": [6]}, \"type\": \"NATIVE_FILTER\", \"description\": \"\", \"chartsInScope\": [5, 7], \"tabsInScope\": []}], \"remote_id\": 1}",
+                "position_json": "{\"CHART-6xRrRne5cL\":{\"children\":[],\"id\":\"CHART-6xRrRne5cL\",\"meta\":{\"chartId\":5,\"height\":25,\"sliceName\":\"Orders\",\"uuid\":\"e654810a-dc8a-4725-9878-64f8816a6dbe\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-FBRqSjlpf\"],\"type\":\"CHART\"},\"CHART-932jEshyHN\":{\"children\":[],\"id\":\"CHART-932jEshyHN\",\"meta\":{\"chartId\":7,\"height\":50,\"sliceName\":\"Monthly Active Users\",\"uuid\":\"431a3862-06e9-48b2-a216-82e6f4b2ea79\",\"width\":12},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-Un8cXZiH7\"],\"type\":\"CHART\"},\"CHART-B7vTc3kOyJ\":{\"children\":[],\"id\":\"CHART-B7vTc3kOyJ\",\"meta\":{\"chartId\":8,\"height\":25,\"sliceName\":\"Active Users\",\"uuid\":\"dc68d8fc-4d05-47f0-b6f9-a679e18eadda\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-FBRqSjlpf\"],\"type\":\"CHART\"},\"CHART-cmMe1it0FU\":{\"children\":[],\"id\":\"CHART-cmMe1it0FU\",\"meta\":{\"chartId\":6,\"height\":25,\"sliceName\":\"Total Customers\",\"uuid\":\"7f80bf49-9857-49db-a548-6981c7f30db6\",\"width\":2},\"parents\":[\"ROOT_ID\",\"GRID_ID\",\"ROW-FBRqSjlpf\"],\"type\":\"CHART\"},\"DASHBOARD_VERSION_KEY\":\"v2\",\"DIVIDER-89Jyen_mRV\":{\"children\":[],\"id\":\"DIVIDER-89Jyen_mRV\",\"meta\":{},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"DIVIDER\"},\"GRID_ID\":{\"children\":[\"HEADER-ZAdiqwztDw\",\"ROW-FBRqSjlpf\",\"DIVIDER-89Jyen_mRV\",\"ROW-Un8cXZiH7\"],\"id\":\"GRID_ID\",\"parents\":[\"ROOT_ID\"],\"type\":\"GRID\"},\"HEADER-ZAdiqwztDw\":{\"children\":[],\"id\":\"HEADER-ZAdiqwztDw\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\",\"headerSize\":\"MEDIUM_HEADER\",\"text\":\"WidgetWare Dashboard\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"HEADER\"},\"HEADER_ID\":{\"id\":\"HEADER_ID\",\"meta\":{\"text\":\"Widgetware\"},\"type\":\"HEADER\"},\"ROOT_ID\":{\"children\":[\"GRID_ID\"],\"id\":\"ROOT_ID\",\"type\":\"ROOT\"},\"ROW-FBRqSjlpf\":{\"children\":[\"CHART-6xRrRne5cL\",\"CHART-cmMe1it0FU\",\"CHART-B7vTc3kOyJ\"],\"id\":\"ROW-FBRqSjlpf\",\"meta\":{\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"},\"ROW-Un8cXZiH7\":{\"children\":[\"CHART-932jEshyHN\"],\"id\":\"ROW-Un8cXZiH7\",\"meta\":{\"0\":\"ROOT_ID\",\"background\":\"BACKGROUND_TRANSPARENT\"},\"parents\":[\"ROOT_ID\",\"GRID_ID\"],\"type\":\"ROW\"}}",
+                "slices": [
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "public.orders",
+                            "datasource_type": "table",
+                            "id": 5,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"19__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"order_date\", \"header_font_size\": 0.4, \"metric\": \"count\", \"subheader_font_size\": 0.15, \"time_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 5, \"datasource_name\": \"orders\", \"schema\": \"public\", \"database_name\": \"PostgreSQL\"}",
+                            "query_context": "{\"datasource\":{\"id\":19,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"order_date\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\":{\"viz_type\":\"big_number_total\",\"datasource\":\"19__table\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"granularity_sqla\":\"order_date\",\"time_grain_sqla\":\"P1D\",\"time_range\":\"No filter\",\"metric\":\"count\",\"adhoc_filters\":[],\"header_font_size\":0.4,\"subheader_font_size\":0.15,\"y_axis_format\":\"SMART_NUMBER\",\"time_format\":\"smart_date\",\"extra_form_data\":{},\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Orders",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "public.customers",
+                            "datasource_type": "table",
+                            "id": 6,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"15__table\", \"extra_form_data\": {}, \"header_font_size\": 0.4, \"metric\": \"count\", \"subheader_font_size\": 0.15, \"time_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 6, \"datasource_name\": \"customers\", \"schema\": \"public\", \"database_name\": \"PostgreSQL\"}",
+                            "query_context": "{\"datasource\":{\"id\":15,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[\"count\"],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\":{\"viz_type\":\"big_number_total\",\"datasource\":\"15__table\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"time_grain_sqla\":\"P1D\",\"time_range\":\"No filter\",\"metric\":\"count\",\"adhoc_filters\":[],\"header_font_size\":0.4,\"subheader_font_size\":0.15,\"y_axis_format\":\"SMART_NUMBER\",\"time_format\":\"smart_date\",\"extra_form_data\":{},\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Total Customers",
+                            "viz_type": "big_number_total"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "public.orders",
+                            "datasource_type": "table",
+                            "id": 7,
+                            "params": "{\"adhoc_filters\": [], \"annotation_layers\": [], \"color_scheme\": \"supersetColors\", \"comparison_type\": \"values\", \"datasource\": \"19__table\", \"extra_form_data\": {}, \"forecastInterval\": 0.8, \"forecastPeriods\": 10, \"granularity_sqla\": \"order_date\", \"groupby\": [], \"legendOrientation\": \"top\", \"legendType\": \"scroll\", \"markerSize\": 6, \"metrics\": [{\"aggregate\": \"COUNT_DISTINCT\", \"column\": {\"certification_details\": null, \"certified_by\": null, \"column_name\": \"customer_id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 132, \"is_certified\": false, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"UNKNOWN\", \"type_generic\": null, \"verbose_name\": null, \"warning_markdown\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT_DISTINCT(customer_id)\", \"optionName\": \"metric_agn7qsbruvp_s0nifgxt3hf\", \"sqlExpression\": null}], \"only_total\": true, \"order_desc\": true, \"rich_tooltip\": true, \"row_limit\": 10000, \"time_grain_sqla\": \"P1M\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"tooltipTimeFormat\": \"smart_date\", \"viz_type\": \"echarts_timeseries_line\", \"x_axis_time_format\": \"smart_date\", \"x_axis_title_margin\": 15, \"y_axis_bounds\": [null, null], \"y_axis_format\": \"SMART_NUMBER\", \"y_axis_title_margin\": 15, \"y_axis_title_position\": \"Left\", \"remote_id\": 7, \"datasource_name\": \"orders\", \"schema\": \"public\", \"database_name\": \"PostgreSQL\"}",
+                            "query_context": "{\"datasource\":{\"id\":19,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"order_date\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1M\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":132,\"column_name\":\"customer_id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"UNKNOWN\",\"type_generic\":null,\"python_date_format\":null,\"is_certified\":false,\"certified_by\":null,\"certification_details\":null,\"warning_markdown\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(customer_id)\",\"optionName\":\"metric_agn7qsbruvp_s0nifgxt3hf\"}],\"orderby\":[[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":132,\"column_name\":\"customer_id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"UNKNOWN\",\"type_generic\":null,\"python_date_format\":null,\"is_certified\":false,\"certified_by\":null,\"certification_details\":null,\"warning_markdown\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(customer_id)\",\"optionName\":\"metric_agn7qsbruvp_s0nifgxt3hf\"},false]],\"annotation_layers\":[],\"row_limit\":10000,\"series_columns\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{},\"is_timeseries\":true,\"time_offsets\":[],\"post_processing\":[{\"operation\":\"pivot\",\"options\":{\"index\":[\"__timestamp\"],\"columns\":[],\"aggregates\":{\"COUNT_DISTINCT(customer_id)\":{\"operator\":\"mean\"}},\"drop_missing_columns\":false,\"flatten_columns\":false,\"reset_index\":false}},{\"operation\":\"flatten\"}]}],\"form_data\":{\"viz_type\":\"echarts_timeseries_line\",\"datasource\":\"19__table\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"granularity_sqla\":\"order_date\",\"time_grain_sqla\":\"P1M\",\"time_range\":\"No filter\",\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":132,\"column_name\":\"customer_id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"UNKNOWN\",\"type_generic\":null,\"python_date_format\":null,\"is_certified\":false,\"certified_by\":null,\"certification_details\":null,\"warning_markdown\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(customer_id)\",\"optionName\":\"metric_agn7qsbruvp_s0nifgxt3hf\"}],\"groupby\":[],\"adhoc_filters\":[],\"order_desc\":true,\"row_limit\":10000,\"comparison_type\":\"values\",\"annotation_layers\":[],\"forecastPeriods\":10,\"forecastInterval\":0.8,\"x_axis_title_margin\":15,\"y_axis_title_margin\":15,\"y_axis_title_position\":\"Left\",\"color_scheme\":\"supersetColors\",\"only_total\":true,\"markerSize\":6,\"legendType\":\"scroll\",\"legendOrientation\":\"top\",\"x_axis_time_format\":\"smart_date\",\"rich_tooltip\":true,\"tooltipTimeFormat\":\"smart_date\",\"y_axis_format\":\"SMART_NUMBER\",\"y_axis_bounds\":[null,null],\"extra_form_data\":{},\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Monthly Active Users",
+                            "viz_type": "echarts_timeseries_line"
+                        }
+                    },
+                    {
+                        "__Slice__": {
+                            "cache_timeout": null,
+                            "datasource_name": "public.orders",
+                            "datasource_type": "table",
+                            "id": 8,
+                            "params": "{\"adhoc_filters\": [], \"datasource\": \"19__table\", \"extra_form_data\": {}, \"granularity_sqla\": \"order_date\", \"header_font_size\": 0.4, \"metric\": {\"aggregate\": \"COUNT_DISTINCT\", \"column\": {\"certification_details\": null, \"certified_by\": null, \"column_name\": \"customer_id\", \"description\": null, \"expression\": null, \"filterable\": true, \"groupby\": true, \"id\": 132, \"is_certified\": false, \"is_dttm\": false, \"python_date_format\": null, \"type\": \"UNKNOWN\", \"type_generic\": null, \"verbose_name\": null, \"warning_markdown\": null}, \"expressionType\": \"SIMPLE\", \"hasCustomLabel\": false, \"isNew\": false, \"label\": \"COUNT_DISTINCT(customer_id)\", \"optionName\": \"metric_47233n3m5k4_k7ed80hsb1j\", \"sqlExpression\": null}, \"subheader_font_size\": 0.15, \"time_format\": \"smart_date\", \"time_grain_sqla\": \"P1D\", \"time_range\": \"No filter\", \"time_range_endpoints\": [\"inclusive\", \"exclusive\"], \"viz_type\": \"big_number_total\", \"y_axis_format\": \"SMART_NUMBER\", \"remote_id\": 8, \"datasource_name\": \"orders\", \"schema\": \"public\", \"database_name\": \"PostgreSQL\"}",
+                            "query_context": "{\"datasource\":{\"id\":19,\"type\":\"table\"},\"force\":false,\"queries\":[{\"time_range\":\"No filter\",\"granularity\":\"order_date\",\"filters\":[],\"extras\":{\"time_grain_sqla\":\"P1D\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"having\":\"\",\"having_druid\":[],\"where\":\"\"},\"applied_time_extras\":{},\"columns\":[],\"metrics\":[{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":132,\"column_name\":\"customer_id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"UNKNOWN\",\"type_generic\":null,\"python_date_format\":null,\"is_certified\":false,\"certified_by\":null,\"certification_details\":null,\"warning_markdown\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(customer_id)\",\"optionName\":\"metric_47233n3m5k4_k7ed80hsb1j\"}],\"annotation_layers\":[],\"timeseries_limit\":0,\"order_desc\":true,\"url_params\":{},\"custom_params\":{},\"custom_form_data\":{}}],\"form_data\":{\"viz_type\":\"big_number_total\",\"datasource\":\"19__table\",\"time_range_endpoints\":[\"inclusive\",\"exclusive\"],\"granularity_sqla\":\"order_date\",\"time_grain_sqla\":\"P1D\",\"time_range\":\"No filter\",\"metric\":{\"expressionType\":\"SIMPLE\",\"column\":{\"id\":132,\"column_name\":\"customer_id\",\"verbose_name\":null,\"description\":null,\"expression\":null,\"filterable\":true,\"groupby\":true,\"is_dttm\":false,\"type\":\"UNKNOWN\",\"type_generic\":null,\"python_date_format\":null,\"is_certified\":false,\"certified_by\":null,\"certification_details\":null,\"warning_markdown\":null},\"aggregate\":\"COUNT_DISTINCT\",\"sqlExpression\":null,\"isNew\":false,\"hasCustomLabel\":false,\"label\":\"COUNT_DISTINCT(customer_id)\",\"optionName\":\"metric_47233n3m5k4_k7ed80hsb1j\"},\"adhoc_filters\":[],\"header_font_size\":0.4,\"subheader_font_size\":0.15,\"y_axis_format\":\"SMART_NUMBER\",\"time_format\":\"smart_date\",\"extra_form_data\":{},\"force\":false,\"result_format\":\"json\",\"result_type\":\"full\"},\"result_format\":\"json\",\"result_type\":\"full\"}",
+                            "slice_name": "Active Users",
+                            "viz_type": "big_number_total"
+                        }
+                    }
+                ],
+                "slug": null
+            }
+        }
+    ],
+    "datasources": [
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "order_id",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 131,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "SMALLINT",
+                            "uuid": "0cd8280c-8793-4be0-8ade-e319b66e3632",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "customer_id",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 132,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "UNKNOWN",
+                            "uuid": "29bd63a7-b938-45f1-b72a-3e1a244e5f2f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "employee_id",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 133,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "SMALLINT",
+                            "uuid": "edddba08-0d44-41d1-b3d4-fb697b6fa124",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "order_date",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 134,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "DATE",
+                            "uuid": "cf8c26a5-0ab3-45f6-bba6-85fa6be24cd1",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "required_date",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 135,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "DATE",
+                            "uuid": "53672bd0-f0cf-4976-85f4-c677662f02f2",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "shipped_date",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 136,
+                            "is_active": true,
+                            "is_dttm": true,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "DATE",
+                            "uuid": "24073e61-20de-488b-8b86-d8b53b63086d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_via",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 137,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "SMALLINT",
+                            "uuid": "81d71fab-6dc3-4ce5-a4e7-00d6c607740f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "freight",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 138,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "REAL",
+                            "uuid": "429dd707-8c35-4c8e-bdb5-e4b7e9bc3bbd",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_name",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 139,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(40)",
+                            "uuid": "2e7e0a9c-aa5f-47f8-856d-7fd4818bd42e",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_address",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 140,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(60)",
+                            "uuid": "9bdb277a-b593-48ff-93d2-13df281c813f",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_city",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 141,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(15)",
+                            "uuid": "51218d9b-85ef-4204-922c-2bbf45c8857c",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_region",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 142,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(15)",
+                            "uuid": "54f2b05d-da83-4730-a08a-9ea93d27033d",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_postal_code",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 143,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(10)",
+                            "uuid": "8cedd581-eae9-432d-8e94-f997cdcd4388",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "column_name": "ship_country",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 144,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 19,
+                            "type": "VARCHAR(15)",
+                            "uuid": "cfa1b9da-d266-4edf-be4a-1b65726f9481",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": "order_date",
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:55"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 19,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 19,
+                            "uuid": "6ba09439-82b6-46bb-af16-b82256082908",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 19, \"database_name\": \"PostgreSQL\"}",
+                "schema": "public",
+                "sql": null,
+                "table_name": "orders",
+                "template_params": null
+            }
+        },
+        {
+            "__SqlaTable__": {
+                "cache_timeout": null,
+                "columns": [
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "customer_id",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 95,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "UNKNOWN",
+                            "uuid": "47496123-9b0b-433c-8c58-28b842d8d8ca",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "company_name",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 96,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(40)",
+                            "uuid": "a5bad401-b72b-4fdc-a8b7-2e66237527d7",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "contact_name",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 97,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(30)",
+                            "uuid": "deaeb87d-0887-4fe3-b23b-d5c3847150cb",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "contact_title",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 98,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(30)",
+                            "uuid": "da150296-39f4-4587-89e2-dd3f6546c5d4",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "address",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 99,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(60)",
+                            "uuid": "138be95d-e1c3-4b51-baf9-0c9e0b28bb2b",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "city",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 100,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(15)",
+                            "uuid": "2204cdff-746d-431a-8ec2-cf45f7b3d47a",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "region",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 101,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(15)",
+                            "uuid": "20466cac-9da6-4aa3-b3cc-181e30fd9523",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "postal_code",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 102,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(10)",
+                            "uuid": "2fc4f40b-47a3-4792-91bd-a84913cb0f03",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "country",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 103,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(15)",
+                            "uuid": "1afc342a-4872-4b1b-9eb9-fe7673b12c16",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "phone",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 104,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(24)",
+                            "uuid": "cbd4bf48-7d32-4412-b6e4-55dd2b411c90",
+                            "verbose_name": null
+                        }
+                    },
+                    {
+                        "__TableColumn__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "column_name": "fax",
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "description": null,
+                            "expression": null,
+                            "extra": null,
+                            "filterable": true,
+                            "groupby": true,
+                            "id": 105,
+                            "is_active": true,
+                            "is_dttm": false,
+                            "python_date_format": null,
+                            "table_id": 15,
+                            "type": "VARCHAR(24)",
+                            "uuid": "328c8a97-1f2b-4243-b44e-a00615b3f733",
+                            "verbose_name": null
+                        }
+                    }
+                ],
+                "database_id": 2,
+                "default_endpoint": null,
+                "description": null,
+                "extra": null,
+                "fetch_values_predicate": null,
+                "filter_select_enabled": false,
+                "main_dttm_col": null,
+                "metrics": [
+                    {
+                        "__SqlMetric__": {
+                            "changed_by_fk": 1,
+                            "changed_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "created_by_fk": 1,
+                            "created_on": {
+                                "__datetime__": "2022-07-06T20:41:07"
+                            },
+                            "d3format": null,
+                            "description": null,
+                            "expression": "COUNT(*)",
+                            "extra": null,
+                            "id": 15,
+                            "metric_name": "count",
+                            "metric_type": "count",
+                            "table_id": 15,
+                            "uuid": "c1c29da4-a4c1-4ce9-a1ee-c695d20cf2ed",
+                            "verbose_name": "COUNT(*)",
+                            "warning_text": null
+                        }
+                    }
+                ],
+                "offset": 0,
+                "params": "{\"remote_id\": 15, \"database_name\": \"PostgreSQL\"}",
+                "schema": "public",
+                "sql": null,
+                "table_name": "customers",
+                "template_params": null
+            }
+        }
+    ]
+}
