@@ -386,7 +386,8 @@ services:
     profiles:
       - superset
   ss-superset:
-    image: amancevice/superset
+    # image: amancevice/superset
+    build: ./docker/superset
     restart: always
     depends_on:
       - ss-mysql
