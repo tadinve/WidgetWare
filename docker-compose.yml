@@ -377,17 +377,22 @@ services:
     image: postgres:14.1-alpine
     restart: always
     environment:
+      - POSTGRES_DB=northwind
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
       - '5432:5432'
     volumes: 
+      - ./init/postgres/dump:/tmp/dump
+      - ./init/postgres/script:/docker-entrypoint-initdb.d
       - ./volumes/ss_postgres_db:/var/lib/postgresql/data
     profiles:
       - superset
   ss-superset:
     # image: amancevice/superset
     build: ./docker/superset
+    command: ["/usr/bin/run-server.sh"]
+    user: "root"
     restart: always
     depends_on:
       - ss-mysql
