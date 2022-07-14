@@ -29,6 +29,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - db
 
   postgres-dbt:
     image: postgres:13
@@ -42,7 +44,9 @@ services:
       - "5433:5432"
     restart: always
     volumes:
-      - postgres-dbt-volume:/var/lib/postgresql/data    
+      - postgres-dbt-volume:/var/lib/postgresql/data
+    profiles:
+      - db
       
   adminer:
     image: wodby/adminer:latest
@@ -64,6 +68,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - db
 
 ######################################################
 # HADOOP SERVICES
@@ -90,6 +96,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
   datanode:
     build: ./docker/hadoop/hadoop-datanode
@@ -111,6 +119,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
   hive-metastore:
     build: ./docker/hive/hive-metastore
@@ -136,6 +146,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
   hive-server:
     build: ./docker/hive/hive-server
@@ -160,6 +172,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
   hive-webhcat:
     build: ./docker/hive/hive-webhcat
@@ -181,6 +195,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
   hue:
     build: ./docker/hue
@@ -205,6 +221,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - hadoop
 
 ######################################################
 # SPARK SERVICES
@@ -232,6 +250,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - spark
 
   spark-worker:
     build: ./docker/spark/spark-worker
@@ -255,6 +275,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - spark
 
   livy:
     build: ./docker/livy
@@ -278,6 +300,8 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+    profiles:
+      - spark
 
 ######################################################
 # AIRFLOW
@@ -311,6 +335,8 @@ services:
       - ./mnt/airflow/logs:/opt/airflow/logs
       - ./mnt/airflow/plugins:/opt/airflow/plugins
       - ./mnt/scripts:/opt/airflow/scripts
+    profiles:
+      - airflow
 
       
     ports:
@@ -328,8 +354,10 @@ services:
   ss-redis:
     image: redis
     restart: always
+    profiles:
+      - superset
     volumes:
-      - ss_redis:/data
+      - ./volumes/ss_redis:/data
   ss-mysql:
     command: --character-set-server=utf8mb4 --collati   on-server=utf8mb4_unicode_ci
     image: mysql:5
@@ -342,7 +370,9 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ss_mysql:/var/lib/mysql
+      - ./volumes/ss_mysql:/var/lib/mysql
+    profiles:
+      - superset
   ss-postgres_db:
     image: postgres:14.1-alpine
     restart: always
@@ -352,7 +382,9 @@ services:
     ports:
       - '5432:5432'
     volumes: 
-      - ./ss_postgres_db:/var/lib/postgresql/data
+      - ./volumes/ss_postgres_db:/var/lib/postgresql/data
+    profiles:
+      - superset
   ss-superset:
     image: amancevice/superset
     restart: always
@@ -364,8 +396,10 @@ services:
     ports:
       - "8088:8088"
     volumes:
-      - /volumes/config/:/etc/superset/superset_config.py
-      - /volumes/superset_data/:/home/superset/ 
+      - ./volumes/config/:/etc/superset/superset_config.py
+      - ./volumes/superset_data/:/home/superset/ 
+    profiles:
+      - superset
 
   # openssh-client:
   #   image: entechlog/openssh-client
