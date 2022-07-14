@@ -1,4 +1,4 @@
-FROM hadoop-base:latest
+FROM packet23/hadoop-base
 LABEL maintainer="Venkat"
 
 COPY start-nodemanager.sh start-nodemanager.sh

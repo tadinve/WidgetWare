@@ -1,4 +1,4 @@
-FROM hadoop-base:latest
+FROM packet23/hadoop-base
 LABEL maintainer="Venkat"
 
 ENV HDFS_CONF_DFS_DATANODE_DATA_DIR=file:///hadoop/dfs/data

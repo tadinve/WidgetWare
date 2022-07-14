@@ -83,6 +83,8 @@ services:
       - ./mnt/hadoop/namenode:/hadoop/dfs/name
     environment:
       - CLUSTER_NAME=hadoop_cluster
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     healthcheck:
       test: [ "CMD", "nc", "-z", "namenode", "9870" ]
       timeout: 45s
@@ -125,6 +127,8 @@ services:
       - postgres
     environment:
       - SERVICE_PRECONDITION=namenode:9870 datanode:9864 postgres:5432
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     ports:
       - "32761:9083"
     healthcheck:
@@ -146,6 +150,8 @@ services:
       - hive-metastore
     environment:
       - SERVICE_PRECONDITION=hive-metastore:9083
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     ports:
       - "32760:10000"
       - "32759:10002"
@@ -168,6 +174,8 @@ services:
       - hive-server
     environment:
       - SERVICE_PRECONDITION=hive-server:10000
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     healthcheck:
       test: [ "CMD", "nc", "-z", "hive-webhcat", "50111" ]
       timeout: 45s
@@ -205,6 +213,9 @@ services:
     build: ./docker/spark/spark-master
     restart: always
     container_name: spark-master
+    environment:
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     logging:
       driver: "json-file"
       options:
@@ -236,6 +247,9 @@ services:
     volumes:
       - ./mnt/spark/apps:/opt/spark-apps
       - ./mnt/spark/data:/opt/spark-data
+    environment:
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     healthcheck:
       test: [ "CMD", "nc", "-z", "spark-worker", "8081" ]
       timeout: 45s
@@ -285,6 +299,8 @@ services:
       - DBT_DBT_SCHEMA=dbt
       - DBT_DBT_RAW_DATA_SCHEMA=dbt_raw_data
       - DBT_POSTGRES_HOST=postgres-dbt
+      - DOCKER_BUILDKIT=0
+      - COMPOSE_DOCKER_CLI_BUILD=0
     container_name: airflow
     volumes:
       - ./mnt/dbt:/dbt
@@ -309,13 +325,47 @@ services:
 ##################### SUPERSET #######################
 ######################################################
 
-  apache-superset:
-    #image: apache/superset
-    build: ./docker/superset
-    container_name: apache-superset
+  ss-redis:
+    image: redis
+    restart: always
+    volumes:
+      - ss_redis:/data
+  ss-mysql:
+    command: --character-set-server=utf8mb4 --collati   on-server=utf8mb4_unicode_ci
+    image: mysql:5
+    restart: always
+    environment:
+      MYSQL_DATABASE: superset
+      MYSQL_PASSWORD: superset
+      MYSQL_ROOT_PASSWORD: superset
+      MYSQL_USER: superset
+    ports:
+      - "3306:3306"
+    volumes:
+      - ss_mysql:/var/lib/mysql
+  ss-postgres_db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./ss_postgres_db:/var/lib/postgresql/data
+  ss-superset:
+    image: amancevice/superset
+    restart: always
+    depends_on:
+      - ss-mysql
+      - ss-redis
+    environment:
+      MAPBOX_API_KEY: ${MAPBOX_API_KEY}
     ports:
       - "8088:8088"
-    restart: unless-stopped
+    volumes:
+      - /volumes/config/:/etc/superset/superset_config.py
+      - /volumes/superset_data/:/home/superset/ 
 
   # openssh-client:
   #   image: entechlog/openssh-client
@@ -352,3 +402,7 @@ volumes:
     driver: local
   postgres-dbt-volume:
     driver: local
+  ss_mysql:
+  ss_redis:
+  ss_postgres_db:
+  config:
