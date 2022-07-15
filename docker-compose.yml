@@ -402,8 +402,8 @@ services:
     ports:
       - "8088:8088"
     volumes:
-      - ./volumes/config/:/etc/superset/superset_config.py
-      - ./volumes/superset_data/:/home/superset/ 
+      - /docker/superset/config/:/etc/superset/
+      - /docker/superset/superset_data/:/home/superset/ 
     profiles:
       - superset
 

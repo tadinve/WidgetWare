@@ -16,6 +16,4 @@ mnt/.DS_Store
 
 mnt/great_expectations/*
 !mnt/great_expectations/
-ss_postgres_db/**
-ss_redis/**
-ss_mysql/**
+volumes/

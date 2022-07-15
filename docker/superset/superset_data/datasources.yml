@@ -1,9 +1,6 @@
 databases:
-- database_name: MySQL
-  sqlalchemy_uri: mysql://root:XXXXXXXXXX@192.168.0.5/widgetware
-  tables: []
 - database_name: PostgreSQL
-  sqlalchemy_uri: postgresql://postgres:XXXXXXXXXX@192.168.0.4/postgres
+  sqlalchemy_uri: postgresql://postgres:XXXXXXXXXX@host.docker.internal/northwind
   tables:
   - columns:
     - column_name: birth_date
