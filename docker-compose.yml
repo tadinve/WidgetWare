@@ -359,7 +359,7 @@ services:
     volumes:
       - ./volumes/ss_redis:/data
   ss-mysql:
-    command: --character-set-server=utf8mb4 --collati   on-server=utf8mb4_unicode_ci
+    # command: --character-set-server=utf8mb4 --collati   on-server=utf8mb4_unicode_ci
     image: mysql:5
     restart: always
     environment:
