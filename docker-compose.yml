@@ -29,8 +29,7 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
-    profiles:
-      - db
+    profiles: ["db", "airflow"]
 
   postgres-dbt:
     image: postgres:13
@@ -45,8 +44,7 @@ services:
     restart: always
     volumes:
       - postgres-dbt-volume:/var/lib/postgresql/data
-    profiles:
-      - db
+    profiles: ["db", "airflow"]
       
   adminer:
     image: wodby/adminer:latest
@@ -68,8 +66,7 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
-    profiles:
-      - db
+    profiles: ["db", "airflow"]
 
 ######################################################
 # HADOOP SERVICES

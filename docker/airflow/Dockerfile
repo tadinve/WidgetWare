@@ -86,6 +86,14 @@ RUN echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > ${AIRFLOW_HOME}/.env
 # Expose ports (just to indicate that this container needs to map port)
 EXPOSE 8080
 
+RUN airflow users create \
+            --username admin \
+            --firstname Admin \
+            --lastname Account \
+            --role Admin \
+            --email admin@admin.com \
+            --password admin
+
 # Execute start-airflow.sh
 CMD [ "./start-airflow.sh" ]
 
