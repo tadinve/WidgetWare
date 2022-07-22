@@ -7,7 +7,7 @@ services:
   postgres:
     build: './docker/postgres'
     restart: always
-    #container_name: postgres
+    container_name: postgres
     logging:
       driver: "json-file"
       options:
@@ -39,6 +39,7 @@ services:
       POSTGRES_DB : dbtdb
       DBT_SCHEMA: dbt
       DBT_RAW_DATA_SCHEMA: dbt_raw_data
+    container_name: postgres-dbt
     ports:
       - "5433:5432"
     restart: always
@@ -66,7 +67,7 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
-    profiles: ["db", "airflow"]
+    profiles: ["db"]
 
 ######################################################
 # HADOOP SERVICES
@@ -335,7 +336,10 @@ services:
     profiles:
       - airflow
 
-      
+    depends_on:
+      - postgres
+      - ss-redis
+      - postgres-dbt
     ports:
       - 8080:8080
     healthcheck:
@@ -351,8 +355,8 @@ services:
   ss-redis:
     image: redis
     restart: always
-    profiles:
-      - superset
+    container_name: redis
+    profiles: ["superset", "airflow"]
     volumes:
       - ./volumes/ss_redis:/data
   ss-mysql:

@@ -17,3 +17,4 @@ mnt/.DS_Store
 mnt/great_expectations/*
 !mnt/great_expectations/
 volumes/
+.venv/

@@ -66,6 +66,9 @@ RUN chown -R airflow: ${AIRFLOW_HOME}
 # Copy the entrypoint.sh from host to container (at path AIRFLOW_HOME)
 COPY ./start-airflow.sh ./start-airflow.sh
 
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
 # Set the entrypoint.sh file to be executable
 RUN chmod +x ./start-airflow.sh
 
